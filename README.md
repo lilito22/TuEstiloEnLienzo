@@ -13,15 +13,13 @@ TuEstiloEnLienzo es una aplicación web desarrollada para gestionar y presentar 
 TuEstiloEnLienzo
 │
 ├── public
-│   ├── css
-│   ├── js
-│   └── img
+│   └── index.php
 │
 ├── app
-│   ├── views
 │   ├── controllers
-│   └── models
+│   ├── models
+│   └── views
 │
-├── config
 ├── docs
-└── index.php
+│
+└── README.md
