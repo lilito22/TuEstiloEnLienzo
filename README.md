@@ -10,18 +10,18 @@ TuEstiloEnLienzo es una aplicación web desarrollada para gestionar y presentar 
 ## Estructura Utilizada
 
 ```text
-TuEstiloEnLienzo/
+TuEstiloEnLienzo
 │
-├── public/
-│   ├── css/
-│   ├── js/
-│   └── img/
+├── public
+│   ├── css
+│   ├── js
+│   └── img
 │
-├── app/
-│   ├── views/
-│   ├── controllers/
-│   └── models/
+├── app
+│   ├── views
+│   ├── controllers
+│   └── models
 │
-├── config/
-├── docs/
+├── config
+├── docs
 └── index.php
