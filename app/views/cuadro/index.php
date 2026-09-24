@@ -1,3 +1,24 @@
+<style>
+    table {
+        width: auto;
+        border-collapse: collapse;
+        margin-bottom: 30px;
+        font-size: 13px;
+    }
+    th, td {
+        border: 1px solid #c2a2e1;
+        padding: 2px 10px;
+        text-align: left;
+    }
+    th {
+        background-color: #b691db;
+        font-weight: bold;
+    }
+    tr:nth-child(even) {
+        background-color: #dcbaff7d;
+    }
+</style>
+
 <h1>Listado de cuadros</h1>
 <?php if (!empty($cuadros)){ ?>
 

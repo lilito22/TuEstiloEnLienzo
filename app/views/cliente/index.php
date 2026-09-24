@@ -33,16 +33,16 @@
         <th>estado</th>
     </tr>
 
-    <?php foreach ($clientes as $clienteModel): ?>
+    <?php foreach ($clientes as $cliente): ?>
     <tr>
-        <td><?= $clienteModel['id_cliente'] ?></td>
-        <td><?= $clienteModel['nombre'] ?></td>
-        <td><?= $clienteModel['apellido'] ?></td>
-        <td><?= $clienteModel['telefono'] ?></td>
-        <td><?= $clienteModel['correo'] ?></td>
-        <td><?= $clienteModel['direccion'] ?></td>
-        <td><?= $clienteModel['ciudad'] ?></td>
-        <td><?= $clienteModel['estado'] ?></td>
+        <td><?= $cliente['id_cliente'] ?></td>
+        <td><?= $cliente['nombre'] ?></td>
+        <td><?= $cliente['apellido'] ?></td>
+        <td><?= $cliente['telefono'] ?></td>
+        <td><?= $cliente['correo'] ?></td>
+        <td><?= $cliente['direccion'] ?></td>
+        <td><?= $cliente['ciudad'] ?></td>
+        <td><?= $cliente['estado'] ?></td>
     </tr>
     <?php endforeach; ?>
 </table>
