@@ -18,7 +18,7 @@
         background-color: #dcbaff7d;
     }
 </style>
-
+ 
 <h1>Listado de cuadros</h1>
 <?php if (!empty($cuadros)){ ?>
 
