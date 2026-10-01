@@ -1,17 +1,16 @@
-<form action = "/cuadro " method = "post">
+<form action = "/pedido " method = "POST">
 
-    <imput type = "text" name = "id_pedido"></imput>
-    <imput type = "text" name = "id_cliente"></imput>
-    <imput type = "text" name = "id_usuario"></imput>
-    <imput type = "text" name = "fecha_pedido"></imput>
-    <imput type = "text" name = "estado_pedido"></imput>
-    <imput type = "number" name = "subtotal"></imput>
-    <imput type = "number" name = "total"></imput>
-    <imput type = "text" name = "tipo_entrega"></imput>
-    <imput type = "text" name = "direccion_entrega"></imput>
-    <imput type = "text" name = "ciudad_entrega"></imput>
-    <imput type = "text" name = "fecha_entrega"></imput>
-    <imput type = "text" name = "observacion"></imput>
+    <input type = "number" name = "id_cliente"></input>
+    <input type = "number" name = "id_usuario"></input>
+    <input type = "text" name = "fecha_pedido"></input>
+    <input type = "text" name = "estado_pedido"></input>
+    <input type = "number" name = "subtotal"></input>
+    <input type = "number" name = "total"></input>
+    <input type = "text" name = "tipo_entrega"></input>
+    <input type = "text" name = "direccion_entrega"></input>
+    <input type = "text" name = "ciudad_entrega"></input>
+    <input type = "text" name = "fecha_entrega"></input>
+    <input type = "text" name = "observacion"></input>
     
     <button type = "submit">Guardar</button>
 </form>
