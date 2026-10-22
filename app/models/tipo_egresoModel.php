@@ -30,4 +30,22 @@ class tipo_egresoModel
 
         return $consulta->fetch(PDO::FETCH_ASSOC);
     }
+
+    public function guardar($nombre,$descripcion)
+    {
+        try {
+            $sql="INSERT INTO tipo_egreso (nombre,descripcion)
+        VALUES (:nombre,:descripcion)
+        ";
+
+        $consulta = $this->connection->prepare($sql);
+        $consulta->bindparam(":nombre", $nombre);
+        $consulta->bindparam(":descripcion", $descripcion);
+
+        return $consulta->execute();
+        } catch (PDOException $e ){
+            echo "Error al guardar el tipo de egreso" . $nombre ."ERROR SQL: " .$e->getMessage();
+        }
+       
+    }
 }

@@ -30,4 +30,25 @@ class materialModel
 
         return $consulta->fetch(PDO::FETCH_ASSOC);
     }
+
+    public function guardar($nombre,$descripcion,$unidad_medida,$costo_unitario,$estado)
+    {
+        try {
+            $sql="INSERT INTO material (nombre,descripcion,unidad_medida,costo_unitario,estado)
+        VALUES (:nombre,:descripcion,:unidad_medida,:costo_unitario,:estado)
+        ";
+
+        $consulta = $this->connection->prepare($sql);
+        $consulta->bindparam(":nombre", $nombre);
+        $consulta->bindparam(":descripcion", $descripcion);
+        $consulta->bindparam(":unidad_medida", $unidad_medida);
+        $consulta->bindparam(":costo_unitario", $costo_unitario);
+        $consulta->bindparam(":estado", $estado);
+
+        return $consulta->execute();
+        } catch (PDOException $e ){
+            echo "Error al guardar el material" . $nombre ."ERROR SQL: " .$e->getMessage();
+        }
+       
+    }
 }

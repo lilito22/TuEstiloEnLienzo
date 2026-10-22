@@ -18,7 +18,7 @@
         background-color: #dcbaff7d;
     }
 </style>
-<h1>Listado de detalle_pedidos</h1>
+<h1>Listado de detallePedidos</h1>
 <?php if (!empty($detalle_pedidos)){ ?>
 
 <table>
@@ -53,7 +53,7 @@
 <p> no hay detalle_pedidos para mostrar</p>
 <?php } ?>
 
-<h1>detalle_pedido consultado</h1>
+<h1>detallePedido consultado</h1>
 <?php if (!empty($detalle_pedidoConsultado)){ ?>
 
 <table>

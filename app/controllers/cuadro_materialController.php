@@ -36,6 +36,15 @@ class cuadro_materialController
         } else{
             echo "No se puedo guardar el cuadro_material";
         }
-
     }
+
+    public function editar()
+    {
+        $id = filter_input(INPUT_GET, 'id', FILTER_VALIDATE_INT);
+        $cuadro_m = new cuadro_materialModel();
+        $cuadro_material = $cuadro_m->getByid($id);
+
+        require_once __DIR__ . "/../views/cuadro_material/editar.php";
+    }
+
 } 
