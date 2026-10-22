@@ -35,6 +35,9 @@
         <th>material</th>
         <th>estado</th>
         <th>id_material_cuadro</th>
+        <th>
+
+        </th>
     </tr>
 
     <?php foreach ($cuadros as $cuadro): ?>
@@ -50,6 +53,7 @@
         <td><?= $cuadro['material'] ?></td>
         <td><?= $cuadro['estado'] ?></td>
         <td><?= $cuadro['id_material_cuadro'] ?></td>
+        <td><a href="/cuadro/editar?id="<?= $cuadro['id_cuadro'] ?>">Editar</a></td>
     </tr>
     <?php endforeach; ?>
 </table>

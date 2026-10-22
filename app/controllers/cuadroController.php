@@ -46,4 +46,13 @@ class cuadroController
 
     }
 
+    public function editar()
+    {
+        $id = filter_input(INPUT_GET, 'id', FILTER_VALIDATE_INT);
+        $mcuadro = new cuadroModel();
+        $cuadro = $mcuadro->getByid($id);
+
+        require_once __DIR__ . "/../views/cuadro/editar.php";
+    }
+
 }

@@ -13,6 +13,7 @@ require_once __DIR__ . "/../app/controllers/tipo_egresoController.php";
 
 $method = $_SERVER['REQUEST_METHOD'];
 $uri = $_SERVER['REQUEST_URI'];
+$ruta = parse_url ($uri, PHP_URL_PATH)
 ?>
 
 <a href="/cliente">Clientes</a>
@@ -67,6 +68,11 @@ if ($method === 'POST' && $uri === "/cuadro") {
     $cuadroController->guardar();
 }
 
+if ($ruta === "cuadro/editar" && $method === 'GET') {
+    $cuadroController = new cuadroController();
+    $cuadroController->editar();
+}
+
 if ($method === 'GET' && $uri === "/cuadro_material") {
     $cuadro_materialController = new cuadro_materialController();
     $cuadro_materialController->index();
@@ -114,6 +120,8 @@ if ($method === 'GET' && $uri === "/tipo_egresos") {
     $tipo_egresoController = new tipo_egresoController();
     $tipo_egresoController->index();
 }
+
+
 
 
 //$clienteController = new clienteController();
