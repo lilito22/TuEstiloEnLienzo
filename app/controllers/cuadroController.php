@@ -41,7 +41,7 @@ class cuadroController
             echo "Cuadro guardado correctamente";
             $this->index();
         } else{
-            echo "No se puedo guardar el cuadro";
+            echo "No se puedo guardar el cuadro"; 
         }
 
     }

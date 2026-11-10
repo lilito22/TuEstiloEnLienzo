@@ -1,1 +1,6 @@
 .env
+public/assets/js/auth/config.js
+.DS_Store
+Thumbs.db
+*.log
+Claude outputs/

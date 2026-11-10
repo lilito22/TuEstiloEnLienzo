@@ -33,6 +33,7 @@
         <td><?= $tipo_egreso['id_tipo_egreso'] ?></td>
         <td><?= $tipo_egreso['nombre'] ?></td>
         <td><?= $tipo_egreso['descripcion'] ?></td>
+        <td><a href="/tipo_egreso/editar?id="<?= $tipo_egreso['id_tipo_egreso'] ?>">Editar</a></td>
     </tr>
     <?php endforeach; ?>
 </table>

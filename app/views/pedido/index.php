@@ -51,6 +51,7 @@
         <td><?= $pedido['ciudad_entrega'] ?></td>
         <td><?= $pedido['fecha_entrega'] ?></td>
         <td><?= $pedido['observacion'] ?></td>
+        <td><a href="/pedido/editar?id="<?= $pedido['id_pedido'] ?>">Editar</a></td>
     </tr>
     <?php endforeach; ?>
 </table>
