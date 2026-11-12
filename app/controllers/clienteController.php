@@ -46,7 +46,7 @@ class clienteController
     public function editar()
     {
         $id = filter_input(INPUT_GET, 'id', FILTER_VALIDATE_INT);
-        $mcliente = new cuadroModel();
+        $mcliente = new clienteModel();
         $cliente = $mcliente->getByid($id);
 
         require_once __DIR__ . "/../views/cliente/editar.php";

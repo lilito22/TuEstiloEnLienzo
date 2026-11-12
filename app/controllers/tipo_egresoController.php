@@ -13,7 +13,7 @@ class tipo_egresoController
         }catch (PDOException $e) {
             echo "error en tipo_egresoModel: " . $e->getMessage(); 
         }
-        require_once __DIR__ . "/../views/cliente/index.php";
+        require_once __DIR__ . "/../views/tipo_egreso/index.php";
     }
 
      public function crear()
@@ -41,7 +41,7 @@ class tipo_egresoController
     public function editar()
     {
         $id = filter_input(INPUT_GET, 'id', FILTER_VALIDATE_INT);
-        $mtipo_egreso = new cuadroModel();
+        $mtipo_egreso = new tipo_egresoModel();
         $tipo_egreso = $mtipo_egreso->getByid($id);
 
         require_once __DIR__ . "/../views/tipo_egreso/editar.php";

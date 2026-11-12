@@ -1,5 +1,5 @@
 <h1>Creando un cliente</h1>
-<form action = "/cliente" method = "POST">
+<form action="<?= APP_BASE_PATH ?>/cliente" method="POST">
 
     <label for ="nombre">Nombre: </label>
     <input placeholder="Nombre" type = "text" name = "nombre"></input>

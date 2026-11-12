@@ -31,7 +31,7 @@ class pedidoModel
         return $consulta->fetch(PDO::FETCH_ASSOC);
     }
 
-    public function guardar($id_cliente,$id_usuario,$fecha_pedido,$ciudad_entrega_pedido,$subtotal,$total,$tipo_entrega,$direccion_entrega,$ciudad_entrega,$fecha_entrega,$observacion)
+    public function guardar($id_cliente,$id_usuario,$fecha_pedido,$estado_pedido,$subtotal,$total,$tipo_entrega,$direccion_entrega,$ciudad_entrega,$fecha_entrega,$observacion)
     {
         try {
             $sql="INSERT INTO pedido (id_cliente,id_usuario,fecha_pedido,estado_pedido,subtotal,total,tipo_entrega,direccion_entrega,ciudad_entrega,fecha_entrega,observacion)

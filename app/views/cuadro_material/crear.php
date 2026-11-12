@@ -1,5 +1,5 @@
 <h1>Creando un Cuadro_material</h1>
-<form action = "/cuadro_material " method = "POST">
+<form action="<?= APP_BASE_PATH ?>/cuadro_material" method="POST">
 
     <label for ="id_material">Id_material: </label>
     <input placeholder="id_material" type = "number" name = "id_material"></input>

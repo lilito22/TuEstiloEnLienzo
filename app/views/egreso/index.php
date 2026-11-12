@@ -39,7 +39,7 @@
         <td><?= $egreso['id_tipo_egreso'] ?></td>
         <td><?= $egreso['valor'] ?></td>
         <td><?= $egreso['observacion'] ?></td>
-        <td><a href="/egreso/editar?id="<?= $egreso['id_egreso'] ?>">Editar</a></td>
+        <td><a href="<?= APP_BASE_PATH ?>/egresos/editar?id=<?= $egreso['id_egreso'] ?>">Editar</a></td>
     </tr>
     <?php endforeach; ?>
 </table>

@@ -47,7 +47,7 @@ class detalle_pedidoController
     public function editar()
     {
         $id = filter_input(INPUT_GET, 'id', FILTER_VALIDATE_INT);
-        $detalle_p = new cuadroModel();
+        $detalle_p = new detalle_pedidoModel();
         $detalle_pedido = $detalle_p->getByid($id);
 
         require_once __DIR__ . "/../views/detalle_pedido/editar.php";

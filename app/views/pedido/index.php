@@ -51,7 +51,7 @@
         <td><?= $pedido['ciudad_entrega'] ?></td>
         <td><?= $pedido['fecha_entrega'] ?></td>
         <td><?= $pedido['observacion'] ?></td>
-        <td><a href="/pedido/editar?id="<?= $pedido['id_pedido'] ?>">Editar</a></td>
+        <td><a href="<?= APP_BASE_PATH ?>/pedidos/editar?id=<?= $pedido['id_pedido'] ?>">Editar</a></td>
     </tr>
     <?php endforeach; ?>
 </table>
@@ -69,7 +69,7 @@
         <th>total</th>
     </tr>
     <tr>
-        <td><?= $pedidoConsultado['fecha_pedido'] ?></td>
+        <td><?= $pedidoConsultado['fecha_entrega'] ?></td>
         <td><?= $pedidoConsultado['total'] ?></td>
     </tr>
 </table>

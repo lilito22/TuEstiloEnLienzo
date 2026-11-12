@@ -1,5 +1,5 @@
 <h1>Creando un egreso</h1>
-<form action = "/egreso " method = "POST">
+<form action="<?= APP_BASE_PATH ?>/egresos" method="POST">
     
     <label for="fecha_egreso">fecha_egreso: </label>
     <input placeholder="fecha_egreso" type = "text" name = "fecha_egreso"></input>

@@ -1,5 +1,5 @@
 <h1>Creando el material</h1>
-<form action = "/material " method = "POST">
+<form action="<?= APP_BASE_PATH ?>/materiales" method="POST">
 
     <label for ="nombre">Nombre: </label>
     <input placeholder="nombre" type = "text" name = "nombre"></input>
@@ -10,7 +10,7 @@
     <label for ="unidad_medida">unidad_medida: </label>
     <input placeholder="unidad_medida" type = "text" name = "unidad_medida"></input>
 
-    <label for ="costo_unitario">Nombre: </label>
+    <label for ="costo_unitario">Costo unitario: </label>
     <input placeholder="costo_unitario" type = "text" name = "costo_unitario"></input>
 
     <label for ="estado">Estado: </label>

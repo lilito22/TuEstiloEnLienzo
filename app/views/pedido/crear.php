@@ -1,5 +1,5 @@
 <h1>Creando un pedido</h1>
-<form action = "/pedido " method = "POST">
+<form action="<?= APP_BASE_PATH ?>/pedidos" method="POST">
 
     <label for ="id_cliente">id_cliente: </label>
     <input placeholder="id_cliente" type = "number" name = "id_cliente"></input>

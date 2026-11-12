@@ -51,7 +51,7 @@ class pedidoController
     public function editar()
     {
         $id = filter_input(INPUT_GET, 'id', FILTER_VALIDATE_INT);
-        $mpedido = new cuadroModel();
+        $mpedido = new pedidoModel();
         $pedido = $mpedido->getByid($id);
 
         require_once __DIR__ . "/../views/pedido/editar.php";

@@ -45,7 +45,7 @@ class egresoController
     {
         $id = filter_input(INPUT_GET, 'id', FILTER_VALIDATE_INT);
         $egresom = new egresoModel();
-        $egresoo = $egresom->getByid($id);
+        $egreso = $egresom->getByid($id);
 
         require_once __DIR__ . "/../views/egreso/editar.php";
     }

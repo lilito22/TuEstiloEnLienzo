@@ -1,38 +1,19 @@
 <h1>Actualizando Datos</h1>
-
-<form action="/cliente/editar" method="POST">
-
-<input type="hidden name= "id" value="<?= $cliente->id ?>">
-
+<form action="<?= APP_BASE_PATH ?>/cliente/editar" method="POST">
+<input type="hidden" name="id" value="<?= htmlspecialchars($cliente['id_cliente'] ?? '') ?>">
 <label for="nombre">nombre</label>
-<input type="text" name="nombre" value="<?= $cliente->nombre ?>">
-
-<label for="descripcion">descripcion</label>
-<input type="text" name="descripcion" value="<?= $cliente->descripcion ?>">
-
-<label for="alto">alto</label>
-<input type="text" name="alto" value="<?= $cliente->alto ?>">
-
-<label for="ancho">ancho</label>
-<input type="text" name="ancho" value="<?= $cliente->ancho ?>">
-
-<label for="precio_costo">precio_costo</label>
-<input type="text" name="precio_costo" value="<?= $cliente->precio_costo ?>">
-
-<label for="precio_venta">precio_venta</label>
-<input type="text" name="alto" value="<?= $cliente->precio_venta ?>">
-
-<label for="imagen">imagen</label>
-<input type="imagen" name="imagen" value="<?= $cliente->imagen ?>">
-
-<label for="material">material</label>
-<input type="text" name="material" value="<?= $cliente->material ?>">
-
+<input type="text" name="nombre" value="<?= htmlspecialchars($cliente['nombre'] ?? '') ?>">
+<label for="apellido">apellido</label>
+<input type="text" name="apellido" value="<?= htmlspecialchars($cliente['apellido'] ?? '') ?>">
+<label for="telefono">telefono</label>
+<input type="number" name="telefono" value="<?= htmlspecialchars($cliente['telefono'] ?? '') ?>">
+<label for="correo">correo</label>
+<input type="text" name="correo" value="<?= htmlspecialchars($cliente['correo'] ?? '') ?>">
+<label for="direccion">direccion</label>
+<input type="text" name="direccion" value="<?= htmlspecialchars($cliente['direccion'] ?? '') ?>">
+<label for="ciudad">ciudad</label>
+<input type="text" name="ciudad" value="<?= htmlspecialchars($cliente['ciudad'] ?? '') ?>">
 <label for="estado">estado</label>
-<input type="text" name="estado" value="<?= $cliente->estado ?>">
-
-<label for="id_material_cliente">id_material_cliente</label>
-<input type="text" name="id_material_cliente" value="<?= $cliente->id_material_cliente ?>">
-
-<button type = "submit">Guardar</button>
+<input type="text" name="estado" value="<?= htmlspecialchars($cliente['estado'] ?? '') ?>">
+<button type="submit">Guardar</button>
 </form>

@@ -43,7 +43,7 @@
         <td><?= $factura['impuesto'] ?></td>
         <td><?= $factura['total_factura'] ?></td>
         <td><?= $factura['estado_factura'] ?></td>
-        <td><a href="/factura/editar?id="<?= $factura['id_factura'] ?>">Editar</a></td>
+        <td><a href="<?= APP_BASE_PATH ?>/facturas/editar?id=<?= $factura['id_factura'] ?>">Editar</a></td>
     </tr>
     <?php endforeach; ?>
 </table>

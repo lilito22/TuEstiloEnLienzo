@@ -1,5 +1,5 @@
 <h1>Creando los pagos</h1>
-<form action = "/pago " method = "POST">
+<form action="<?= APP_BASE_PATH ?>/pagos" method="POST">
 
     <label for ="id_pedido">id_pedido: </label>
     <input placeholder="id_pedido" type = "number" name = "id_pedido"></input>

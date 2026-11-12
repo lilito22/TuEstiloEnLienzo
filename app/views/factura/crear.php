@@ -1,5 +1,5 @@
 <h1>Creando una factura</h1>
-<form action = "/factura " method = "POST">
+<form action="<?= APP_BASE_PATH ?>/facturas" method="POST">
 
     <label for ="id_pedido">id_pedido: </label>
     <input placeholder="id_pedido" type = "number" name = "id_pedido"></input>

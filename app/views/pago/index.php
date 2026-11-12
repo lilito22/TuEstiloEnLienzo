@@ -43,7 +43,7 @@
         <td><?= $pago['tipo_movimiento'] ?></td>
         <td><?= $pago['referencia'] ?></td>
         <td><?= $pago['observacion'] ?></td>
-        <td><a href="/pago/editar?id="<?= $pago['id_pago'] ?>">Editar</a></td>
+        <td><a href="<?= APP_BASE_PATH ?>/pagos/editar?id=<?= $pago['id_pago'] ?>">Editar</a></td>
     </tr>
     <?php endforeach; ?>
 </table>
@@ -57,8 +57,8 @@
 
 <table>
     <tr>
-        <th>nombre</th>
-        <th>apellido</th>
+        <th>monto</th>
+        <th>tipo_movimiento</th>
     </tr>
     <tr>
         <td><?= $pagoConsultado['monto'] ?></td>

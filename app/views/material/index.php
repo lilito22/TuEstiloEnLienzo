@@ -37,9 +37,9 @@
         <td><?= $material['nombre'] ?></td>
         <td><?= $material['descripcion'] ?></td>
         <td><?= $material['unidad_medida'] ?></td>
-        <td><?= $material['costo_unitatio'] ?></td>
+        <td><?= $material['costo_unitario'] ?></td>
         <td><?= $material['estado'] ?></td>
-        <td><a href="/material/editar?id="<?= $material['id_material'] ?>">Editar</a></td>
+        <td><a href="<?= APP_BASE_PATH ?>/materiales/editar?id=<?= $material['id_material'] ?>">Editar</a></td>
     </tr>
     <?php endforeach; ?>
 </table>

@@ -53,7 +53,7 @@
         <td><?= $cuadro['material'] ?></td>
         <td><?= $cuadro['estado'] ?></td>
         <td><?= $cuadro['id_material_cuadro'] ?></td>
-        <td><a href="/cuadro/editar?id="<?= $cuadro['id_cuadro'] ?>">Editar</a></td>
+        <td><a href="<?= APP_BASE_PATH ?>/cuadro/editar?id=<?= $cuadro['id_cuadro'] ?>">Editar</a></td>
     </tr>
     <?php endforeach; ?>
 </table>

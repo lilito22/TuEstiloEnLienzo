@@ -43,7 +43,7 @@
         <td><?= $cliente['direccion'] ?></td>
         <td><?= $cliente['ciudad'] ?></td>
         <td><?= $cliente['estado'] ?></td>
-        <td><a href="/cliente/editar?id="<?= $cliente['id_cliente'] ?>">Editar</a></td>
+        <td><a href="<?= APP_BASE_PATH ?>/cliente/editar?id=<?= $cliente['id_cliente'] ?>">Editar</a></td>
     </tr>
     <?php endforeach; ?>
 </table>

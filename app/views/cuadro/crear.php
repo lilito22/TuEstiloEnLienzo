@@ -1,5 +1,5 @@
 <h1>Creando un Cuadro</h1>
-<form action = "/cuadro" method = "POST">
+<form action="<?= APP_BASE_PATH ?>/cuadro" method="POST">
     
     <label for ="nombre">Nombre: </label>
     <input placeholder="nombre" type ="text" name = "nombre"></input>

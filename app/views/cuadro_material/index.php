@@ -35,7 +35,7 @@
         <td><?= $cuadro_material['id_material'] ?></td>
         <td><?= $cuadro_material['cantidad'] ?></td>
         <td><?= $cuadro_material['subtotal_costo'] ?></td>
-        <td><a href="/cuadro_material/editar?id="<?= $cuadro_material['id_cuadro_material'] ?>">Editar</a></td>
+        <td><a href="<?= APP_BASE_PATH ?>/cuadro_material/editar?id=<?= $cuadro_material['id_cuadro_material'] ?>">Editar</a></td>
     </tr>
     <?php endforeach; ?>
 </table>

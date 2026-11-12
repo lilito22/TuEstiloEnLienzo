@@ -1,8 +1,8 @@
 <h1>Creando un DetallePedido</h1>
-<form action = "/detalle_pedido " method = "POST">
+<form action="<?= APP_BASE_PATH ?>/detalle_pedido" method="POST">
 
-    <label for ="nombre">Nombre: </label>
-    <input placeholder="nombre" type = "number" name = "id_pedido"></input>
+    <label for ="id_pedido">id_pedido: </label>
+    <input placeholder="id_pedido" type = "number" name = "id_pedido"></input>
 
     <label for ="id_cuadro">id_cuadro: </label>
     <input placeholder="id_cuadro" type = "number" name = "id_cuadro"></input>

@@ -46,7 +46,7 @@ class facturaController
     public function editar()
     {
         $id = filter_input(INPUT_GET, 'id', FILTER_VALIDATE_INT);
-        $mfactura = new cuadroModel();
+        $mfactura = new facturaModel();
         $factura = $mfactura->getByid($id);
 
         require_once __DIR__ . "/../views/factura/editar.php";

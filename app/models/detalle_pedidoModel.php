@@ -31,15 +31,15 @@ class detalle_pedidoModel
         return $consulta->fetch(PDO::FETCH_ASSOC);
     }
 
-     public function guardar($nombre,$id_cuadro,$descripcion,$alto,$ancho,$cantidad,$precio_unitario,$subtotal)
+     public function guardar($id_pedido,$id_cuadro,$descripcion,$alto,$ancho,$cantidad,$precio_unitario,$subtotal)
     {
         try {
-            $sql="INSERT INTO detalle_pedido (nombre,id_cuadro,descripcion,alto,ancho,cantidad,precio_unitario,subtotal)
-        VALUES (:nombre,:id_cuadro,:descripcion,:alto,:ancho,:cantidad,:precio_unitario,:subtotal)
+            $sql="INSERT INTO detalle_pedido (id_pedido,id_cuadro,descripcion,alto,ancho,cantidad,precio_unitario,subtotal)
+        VALUES (:id_pedido,:id_cuadro,:descripcion,:alto,:ancho,:cantidad,:precio_unitario,:subtotal)
         ";
 
         $consulta = $this->connection->prepare($sql);
-        $consulta->bindparam(":nombre", $nombre);
+        $consulta->bindparam(":id_pedido", $id_pedido);
         $consulta->bindparam(":id_cuadro", $id_cuadro);
         $consulta->bindparam(":descripcion", $descripcion);
         $consulta->bindparam(":alto", $alto);
@@ -50,7 +50,7 @@ class detalle_pedidoModel
 
         return $consulta->execute();
         } catch (PDOException $e ){
-            echo "Error al guardar el detalle del pedido" . $nombre ."ERROR SQL: " .$e->getMessage();
+            echo "Error al guardar el detalle del pedido " . $id_pedido ."ERROR SQL: " .$e->getMessage();
         }
        
     }

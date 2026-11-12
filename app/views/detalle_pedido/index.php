@@ -45,7 +45,7 @@
         <td><?= $detalle_pedido['cantidad'] ?></td>
         <td><?= $detalle_pedido['precio_unitario'] ?></td>
         <td><?= $detalle_pedido['subtotal'] ?></td>
-        <td><a href="/detalle_pedido/editar?id="<?= $detalle_pedido['id_detalle_pedido'] ?>">Editar</a></td>
+        <td><a href="<?= APP_BASE_PATH ?>/detalle_pedido/editar?id=<?= $detalle_pedido['id_detalle_pedido'] ?>">Editar</a></td>
     </tr>
     <?php endforeach; ?>
 </table>
