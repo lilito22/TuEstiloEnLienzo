@@ -13,10 +13,10 @@ require_once __DIR__ . "/../app/controllers/tipo_egresoController.php";
 
 $method = $_SERVER['REQUEST_METHOD'];
 $uri = $_SERVER['REQUEST_URI'];
-$ruta = parse_url ($uri, PHP_URL_PATH)
+$ruta = parse_url($uri, PHP_URL_PATH);
 ?>
 
-<a href="/cliente">Clientes</a>
+<a href="/cliente">Clientes</a> 
 <a href="/cliente/crear"> crear_Cliente</a>
 
 <a href="/cuadro">Cuadros</a>
@@ -49,183 +49,249 @@ $ruta = parse_url ($uri, PHP_URL_PATH)
 
 <?php
 
-if ($method === 'GET' && $uri === "/cliente") {
-    $clienteController = new clienteController();
-    $clienteController->index();
-}
-if ($method === 'GET' && $uri === "/cliente/crear") {
-    $clienteController = new clienteController();
-    $clienteController->crear();
-}
-if ($method === 'POST' && $uri === "/cliente") {
-    $clienteController = new clienteController();
-    $clienteController->guardar();
-}
-if ($ruta === "cliente/editar" && $method === 'GET') {
-    $clienteController = new clienteController();
-    $clienteController->editar();
-}
+switch ($uri) {
 
-if ($method === 'GET' && $uri === "/cuadro") {
-    $cuadroController = new cuadroController();
-    $cuadroController->index();
-}
-if ($method === 'GET' && $uri === "/cuadro/crear") {
-    $cuadroController = new cuadroController();
-    $cuadroController->crear();
-}
-if ($method === 'POST' && $uri === "/cuadro") {
-    $cuadroController = new cuadroController();
-    $cuadroController->guardar();
-}
-if ($ruta === "cuadro/editar" && $method === 'GET') {
-    $cuadroController = new cuadroController();
-    $cuadroController->editar();
-}
+    case '/cliente':
+        if ($method === 'GET') {
+            $clienteController = new clienteController();
+            $clienteController->index();
+        } else if ($method === 'POST') {
+            $clienteController = new clienteController();
+            $clienteController->guardar();
+        }
+        break;
 
-if ($method === 'GET' && $uri === "/cuadro_material") {
-    $cuadro_materialController = new cuadro_materialController();
-    $cuadro_materialController->index();
-}
-if ($method === 'GET' && $uri === "/cuadro_material/crear") {
-    $cuadro_materialController = new cuadro_materialController();
-    $cuadro_materialController->crear();
-}
-if ($method === 'POST' && $uri === "/cuadro_material") {
-    $cuadro_materialController = new cuadro_materialController();
-    $cuadro_materialController->guardar();
-}
-if ($ruta === "cuadro_material/editar" && $method === 'GET') {
-    $cuadro_materialController = new cuadro_materialController();
-    $cuadro_materialController->editar();
-}
+    case '/cliente/crear':
+        if ($method === 'GET') {
+            $clienteController = new clienteController();
+            $clienteController->crear();
+        }
+        break;
 
-if ($method === 'GET' && $uri === "/detalle_pedido") {
-    $detalle_pedidoController = new detalle_pedidoController();
-    $detalle_pedidoController->index();
-}
-if ($method === 'GET' && $uri === "/detalle_pedido/crear") {
-    $detalle_pedidoController = new detalle_pedidoController();
-    $detalle_pedidoController->crear();
-}
-if ($method === 'POST' && $uri === "/detalle_pedido") {
-    $detalle_pedidoController = new detalle_pedidoController();
-    $detalle_pedidoController->guardar();
-}
-if ($ruta === "detalle_pedido/editar" && $method === 'GET') {
-    $detalle_pedidoController = new detalle_pedidoController();
-    $detalle_pedidoController->editar();
-}
+    case '/cliente/editar':
+        if ($method === 'GET') {
+            $clienteController = new clienteController();
+            $clienteController->editar();
+        }
+        break;
 
-if ($method === 'GET' && $uri === "/egresos") {
-    $egresoController = new egresoController();
-    $egresoController->index();
-}
-if ($method === 'GET' && $uri === "/egresos/crear") {
-    $egresoController = new egresoController();
-    $egresoController->crear();
-}
-if ($method === 'POST' && $uri === "/egresos") {
-    $egresoController = new egresoController();
-    $egresoController->guardar();
-}
-if ($ruta === "egresos/editar" && $method === 'GET') {
-    $egresoController = new egresoController();
-    $egresoController->editar();
-}
+    case '/cuadro':
+        if ($method === 'GET') {
+            $cuadroController = new cuadroController();
+            $cuadroController->index();
+        } else if ($method === 'POST') {
+            $cuadroController = new cuadroController();
+            $cuadroController->guardar();
+        }
+        break;
 
-if ($method === 'GET' && $uri === "/facturas") {
-    $facturaController = new facturaController();
-    $facturaController->index();
-}
-if ($method === 'GET' && $uri === "/facturas/crear") {
-    $facturaController = new facturaController();
-    $facturaController->crear();
-}
-if ($method === 'POST' && $uri === "/facturas") {
-    $facturaController = new facturaController();
-    $facturaController->guardar();
-}
-if ($ruta === "facturas/editar" && $method === 'GET') {
-    $facturaController = new facturaController();
-    $facturaController->editar();
-}
+    case '/cuadro/crear':
+        if ($method === 'GET') {
+            $cuadroController = new cuadroController();
+            $cuadroController->crear();
+        }
+        break;
 
-if ($method === 'GET' && $uri === "/materiales") {
-    $materialController = new materialController();
-    $materialController->index();
-}
-if ($method === 'GET' && $uri === "/materiales/crear") {
-    $materialController = new materialController();
-    $materialController->crear();
-}
-if ($method === 'POST' && $uri === "/materiales") {
-    $materialController = new materialController();
-    $materialController->guardar();
-}
-if ($ruta === "materiales/editar" && $method === 'GET') {
-    $materialController = new materialController();
-    $materialController->editar();
-}
+    case '/cuadro/editar':
+        if ($method === 'GET') {
+            $cuadroController = new cuadroController();
+            $cuadroController->editar();
+        }
+        break;
 
-if ($method === 'GET' && $uri === "/pagos") {
-    $pagoController = new pagoController();
-    $pagoController->index();
-}
-if ($method === 'GET' && $uri === "/pagos/crear") {
-    $pagoController = new pagoController();
-    $pagoController->crear();
-}
-if ($method === 'POST' && $uri === "/pagos") {
-    $pagoController = new pagoController();
-    $pagoController->guardar();
-}
-if ($ruta === "pagos/editar" && $method === 'GET') {
-    $pagoController = new pagoController();
-    $pagoController->editar();
-}
+    case '/cuadro_material':
+        if ($method === 'GET') {
+            $cuadro_materialController = new cuadro_materialController();
+            $cuadro_materialController->index();
+        } else if ($method === 'POST') {
+            $cuadro_materialController = new cuadro_materialController();
+            $cuadro_materialController->guardar();
+        }
+        break;
 
-if ($method === 'GET' && $uri === "/pedidos") {
-    $pedidoController = new pedidoController();
-    $pedidoController->index();
-}
-if ($method === 'GET' && $uri === "/pedidos/crear") {
-    $pedidoController = new pedidoController();
-    $pedidoController->crear();
-}
-if ($method === 'POST' && $uri === "/pedidos") {
-    $pedidoController = new pedidoController();
-    $pedidoController->guardar();
-}
-if ($ruta === "pedidos/editar" && $method === 'GET') {
-    $pedidoController = new pedidoController();
-    $pedidoController->editar();
-}
+    case '/cuadro_material/crear':
+        if ($method === 'GET') {
+            $cuadro_materialController = new cuadro_materialController();
+            $cuadro_materialController->crear();
+        }
+        break;
 
-if ($method === 'GET' && $uri === "/tipo_egresos") {
-    $tipo_egresoController = new tipo_egresoController();
-    $tipo_egresoController->index();
+    case '/cuadro_material/editar':
+        if ($method === 'GET') {
+            $cuadro_materialController = new cuadro_materialController();
+            $cuadro_materialController->editar();
+        }
+        break;
+
+    case '/detalle_pedido':
+        if ($method === 'GET') {
+            $detalle_pedidoController = new detalle_pedidoController();
+            $detalle_pedidoController->index();
+        } else if ($method === 'POST') {
+            $detalle_pedidoController = new detalle_pedidoController();
+            $detalle_pedidoController->guardar();
+        }
+        break;
+
+    case '/detalle_pedido/crear':
+        if ($method === 'GET') {
+            $detalle_pedidoController = new detalle_pedidoController();
+            $detalle_pedidoController->crear();
+        }
+        break;
+
+    case '/detalle_pedido/editar':
+        if ($method === 'GET') {
+            $detalle_pedidoController = new detalle_pedidoController();
+            $detalle_pedidoController->editar();
+        }
+        break;
+
+    case '/egresos':
+        if ($method === 'GET') {
+            $egresoController = new egresoController();
+            $egresoController->index();
+        } else if ($method === 'POST') {
+            $egresoController = new egresoController();
+            $egresoController->guardar();
+        }
+        break;
+
+    case '/egresos/crear':
+        if ($method === 'GET') {
+            $egresoController = new egresoController();
+            $egresoController->crear();
+        }
+        break;
+
+    case '/egresos/editar':
+        if ($method === 'GET') {
+            $egresoController = new egresoController();
+            $egresoController->editar();
+        }
+        break;
+
+    case '/facturas':
+        if ($method === 'GET') {
+            $facturaController = new facturaController();
+            $facturaController->index();
+        } else if ($method === 'POST') {
+            $facturaController = new facturaController();
+            $facturaController->guardar();
+        }
+        break;
+
+    case '/facturas/crear':
+        if ($method === 'GET') {
+            $facturaController = new facturaController();
+            $facturaController->crear();
+        }
+        break;
+
+    case '/facturas/editar':
+        if ($method === 'GET') {
+            $facturaController = new facturaController();
+            $facturaController->editar();
+        }
+        break;
+
+    case '/materiales':
+        if ($method === 'GET') {
+            $materialController = new materialController();
+            $materialController->index();
+        } else if ($method === 'POST') {
+            $materialController = new materialController();
+            $materialController->guardar();
+        }
+        break;
+
+    case '/materiales/crear':
+        if ($method === 'GET') {
+            $materialController = new materialController();
+            $materialController->crear();
+        }
+        break;
+
+    case '/materiales/editar':
+        if ($method === 'GET') {
+            $materialController = new materialController();
+            $materialController->editar();
+        }
+        break;
+
+    case '/pagos':
+        if ($method === 'GET') {
+            $pagoController = new pagoController();
+            $pagoController->index();
+        } else if ($method === 'POST') {
+            $pagoController = new pagoController();
+            $pagoController->guardar();
+        }
+        break;
+
+    case '/pagos/crear':
+        if ($method === 'GET') {
+            $pagoController = new pagoController();
+            $pagoController->crear();
+        }
+        break;
+
+    case '/pagos/editar':
+        if ($method === 'GET') {
+            $pagoController = new pagoController();
+            $pagoController->editar();
+        }
+        break;
+
+    case '/pedidos':
+        if ($method === 'GET') {
+            $pedidoController = new pedidoController();
+            $pedidoController->index();
+        } else if ($method === 'POST') {
+            $pedidoController = new pedidoController();
+            $pedidoController->guardar();
+        }
+        break;
+
+    case '/pedidos/crear':
+        if ($method === 'GET') {
+            $pedidoController = new pedidoController();
+            $pedidoController->crear();
+        }
+        break;
+
+    case '/pedidos/editar':
+        if ($method === 'GET') {
+            $pedidoController = new pedidoController();
+            $pedidoController->editar();
+        }
+        break;
+
+    case '/tipo_egresos':
+        if ($method === 'GET') {
+            $tipo_egresoController = new tipo_egresoController();
+            $tipo_egresoController->index();
+        } else if ($method === 'POST') {
+            $tipo_egresoController = new tipo_egresoController();
+            $tipo_egresoController->guardar();
+        }
+        break;
+
+    case '/tipo_egresos/crear':
+        if ($method === 'GET') {
+            $tipo_egresoController = new tipo_egresoController();
+            $tipo_egresoController->crear();
+        }
+        break;
+
+    case '/tipo_egresos/editar':
+        if ($method === 'GET') {
+            $tipo_egresoController = new tipo_egresoController();
+            $tipo_egresoController->editar();
+        }
+        break;
+
+    default:
+        echo "Página no encontrada";
+        break;
 }
-if ($method === 'GET' && $uri === "/tipo_egresos/crear") {
-    $tipo_egresoController = new tipo_egresoController();
-    $tipo_egresoController->crear();
-}
-if ($method === 'POST' && $uri === "/tipo_egresos") {
-    $tipo_egresoController = new tipo_egresoController();
-    $tipo_egresoController->guardar();
-}
-if ($ruta === "tipo_egresos/editar" && $method === 'GET') {
-    $tipo_egresoController = new tipo_egresoController();
-    $tipo_egresoController->editar();
-}
-
-
-
-
-//$clienteController = new clienteController();
-// $clienteController->index()
-//$cuadroController = new cuadroController();
-//$cuadroController->index();
-
-//$pedidoController = new pedidoController();
-//$pedidoController->index();
