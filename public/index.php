@@ -49,7 +49,7 @@ $ruta = parse_url($uri, PHP_URL_PATH);
 
 <?php
 
-switch ($uri) {
+switch ($ruta) {
 
     case '/cliente':
         if ($method === 'GET') {
@@ -72,6 +72,16 @@ switch ($uri) {
         if ($method === 'GET') {
             $clienteController = new clienteController();
             $clienteController->editar();
+        } else if ($method === 'POST') {
+            $clienteController = new clienteController();
+            $clienteController->actualizar();
+        }
+        break;
+
+    case '/cliente/eliminar':
+        if ($method === 'POST') {
+            $clienteController = new clienteController();
+            $clienteController->eliminar();
         }
         break;
 
@@ -96,6 +106,16 @@ switch ($uri) {
         if ($method === 'GET') {
             $cuadroController = new cuadroController();
             $cuadroController->editar();
+        } else if ($method === 'POST') {
+            $cuadroController = new cuadroController();
+            $cuadroController->actualizar();
+        }
+        break;
+
+    case '/cuadro/eliminar':
+        if ($method === 'POST') {
+            $cuadroController = new cuadroController();
+            $cuadroController->eliminar();
         }
         break;
 
@@ -120,6 +140,16 @@ switch ($uri) {
         if ($method === 'GET') {
             $cuadro_materialController = new cuadro_materialController();
             $cuadro_materialController->editar();
+        } else if ($method === 'POST') {
+            $cuadro_materialController = new cuadro_materialController();
+            $cuadro_materialController->actualizar();
+        }
+        break;
+
+    case '/cuadro_material/eliminar':
+        if ($method === 'POST') {
+            $cuadro_materialController = new cuadro_materialController();
+            $cuadro_materialController->eliminar();
         }
         break;
 
@@ -144,6 +174,16 @@ switch ($uri) {
         if ($method === 'GET') {
             $detalle_pedidoController = new detalle_pedidoController();
             $detalle_pedidoController->editar();
+        } else if ($method === 'POST') {
+            $detalle_pedidoController = new detalle_pedidoController();
+            $detalle_pedidoController->actualizar();
+        }
+        break;
+
+    case '/detalle_pedido/eliminar':
+        if ($method === 'POST') {
+            $detalle_pedidoController = new detalle_pedidoController();
+            $detalle_pedidoController->eliminar();
         }
         break;
 
@@ -168,6 +208,16 @@ switch ($uri) {
         if ($method === 'GET') {
             $egresoController = new egresoController();
             $egresoController->editar();
+        } else if ($method === 'POST') {
+            $egresoController = new egresoController();
+            $egresoController->actualizar();
+        }
+        break;
+
+    case '/egresos/eliminar':
+        if ($method === 'POST') {
+            $egresoController = new egresoController();
+            $egresoController->eliminar();
         }
         break;
 
@@ -192,6 +242,16 @@ switch ($uri) {
         if ($method === 'GET') {
             $facturaController = new facturaController();
             $facturaController->editar();
+        } else if ($method === 'POST') {
+            $facturaController = new facturaController();
+            $facturaController->actualizar();
+        }
+        break;
+
+    case '/facturas/eliminar':
+        if ($method === 'POST') {
+            $facturaController = new facturaController();
+            $facturaController->eliminar();
         }
         break;
 
@@ -216,6 +276,16 @@ switch ($uri) {
         if ($method === 'GET') {
             $materialController = new materialController();
             $materialController->editar();
+        } else if ($method === 'POST') {
+            $materialController = new materialController();
+            $materialController->actualizar();
+        }
+        break;
+
+    case '/materiales/eliminar':
+        if ($method === 'POST') {
+            $materialController = new materialController();
+            $materialController->eliminar();
         }
         break;
 
@@ -240,6 +310,16 @@ switch ($uri) {
         if ($method === 'GET') {
             $pagoController = new pagoController();
             $pagoController->editar();
+        } else if ($method === 'POST') {
+            $pagoController = new pagoController();
+            $pagoController->actualizar();
+        }
+        break;
+
+    case '/pagos/eliminar':
+        if ($method === 'POST') {
+            $pagoController = new pagoController();
+            $pagoController->eliminar();
         }
         break;
 
@@ -264,6 +344,16 @@ switch ($uri) {
         if ($method === 'GET') {
             $pedidoController = new pedidoController();
             $pedidoController->editar();
+        } else if ($method === 'POST') {
+            $pedidoController = new pedidoController();
+            $pedidoController->actualizar();
+        }
+        break;
+
+    case '/pedidos/eliminar':
+        if ($method === 'POST') {
+            $pedidoController = new pedidoController();
+            $pedidoController->eliminar();
         }
         break;
 
@@ -288,6 +378,16 @@ switch ($uri) {
         if ($method === 'GET') {
             $tipo_egresoController = new tipo_egresoController();
             $tipo_egresoController->editar();
+        } else if ($method === 'POST') {
+            $tipo_egresoController = new tipo_egresoController();
+            $tipo_egresoController->actualizar();
+        }
+        break;
+
+    case '/tipo_egresos/eliminar':
+        if ($method === 'POST') {
+            $tipo_egresoController = new tipo_egresoController();
+            $tipo_egresoController->eliminar();
         }
         break;
 

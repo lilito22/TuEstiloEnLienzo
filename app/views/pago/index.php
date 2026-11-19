@@ -31,6 +31,7 @@
         <th>tipo_movimiento</th>
         <th>referencia</th>
         <th>observacion</th>
+        <th></th>
     </tr>
 
     <?php foreach ($pagos as $pago): ?>
@@ -43,6 +44,13 @@
         <td><?= $pago['tipo_movimiento'] ?></td>
         <td><?= $pago['referencia'] ?></td>
         <td><?= $pago['observacion'] ?></td>
+        <td>
+            <a href="/pagos/editar?id=<?= $pago['id_pago'] ?>">Editar</a>
+            <form action="/pagos/eliminar" method="POST" style="display:inline" onsubmit="return confirm('¿Seguro que quieres eliminar este registro?');">
+                <input type="hidden" name="id" value="<?= $pago['id_pago'] ?>">
+                <button type="submit">Eliminar</button>
+            </form>
+        </td>
     </tr>
     <?php endforeach; ?>
 </table>

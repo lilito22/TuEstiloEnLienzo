@@ -48,4 +48,35 @@ class tipo_egresoModel
         }
        
     }
+
+    public function actualizar($id,$nombre,$descripcion)
+    {
+        try {
+            $sql = "UPDATE tipo_egreso SET nombre = :nombre, descripcion = :descripcion
+                    WHERE id_tipo_egreso = :id";
+
+            $consulta = $this->connection->prepare($sql);
+            $consulta->bindparam(":id", $id);
+            $consulta->bindparam(":nombre", $nombre);
+            $consulta->bindparam(":descripcion", $descripcion);
+
+            return $consulta->execute();
+        } catch (PDOException $e) {
+            echo "Error al actualizar el tipo de egreso. ERROR SQL: " . $e->getMessage();
+        }
+    }
+
+    public function eliminar($id)
+    {
+        try {
+            $sql = "DELETE FROM tipo_egreso WHERE id_tipo_egreso = :id";
+
+            $consulta = $this->connection->prepare($sql);
+            $consulta->bindparam(":id", $id);
+
+            return $consulta->execute();
+        } catch (PDOException $e) {
+            echo "Error al eliminar el tipo de egreso. ERROR SQL: " . $e->getMessage();
+        }
+    }
 }

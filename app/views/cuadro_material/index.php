@@ -27,6 +27,7 @@
         <th>id_material</th>
         <th>cantidad</th>
         <th>subtotal_costo</th>
+        <th></th>
     </tr>
 
     <?php foreach ($cuadro_materiales as $cuadro_material): ?>
@@ -35,6 +36,13 @@
         <td><?= $cuadro_material['id_material'] ?></td>
         <td><?= $cuadro_material['cantidad'] ?></td>
         <td><?= $cuadro_material['subtotal_costo'] ?></td>
+        <td>
+            <a href="/cuadro_material/editar?id=<?= $cuadro_material['id_cuadro_material'] ?>">Editar</a>
+            <form action="/cuadro_material/eliminar" method="POST" style="display:inline" onsubmit="return confirm('¿Seguro que quieres eliminar este registro?');">
+                <input type="hidden" name="id" value="<?= $cuadro_material['id_cuadro_material'] ?>">
+                <button type="submit">Eliminar</button>
+            </form>
+        </td>
     </tr>
     <?php endforeach; ?>
 </table>

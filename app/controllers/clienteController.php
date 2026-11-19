@@ -46,9 +46,46 @@ class clienteController
     public function editar()
     {
         $id = filter_input(INPUT_GET, 'id', FILTER_VALIDATE_INT);
-        $mcliente = new cuadroModel();
+        $mcliente = new clienteModel();
         $cliente = $mcliente->getByid($id);
 
         require_once __DIR__ . "/../views/cliente/editar.php";
     }
-} 
+
+    public function actualizar()
+    {
+        $id=$_POST['id'];
+        $nombre=$_POST['nombre'];
+        $apellido=$_POST['apellido'];
+        $telefono=$_POST['telefono'];
+        $correo=$_POST['correo'];
+        $direccion=$_POST['direccion'];
+        $ciudad=$_POST['ciudad'];
+        $estado=$_POST['estado'];
+
+        $cliente = new clienteModel();
+        $resultado = $cliente->actualizar($id,$nombre,$apellido,$telefono,$correo,$direccion,$ciudad,$estado);
+
+        if ($resultado){
+            echo "Cliente actualizado correctamente";
+            $this->index();
+        } else {
+            echo "No se pudo actualizar el cliente";
+        }
+    }
+
+    public function eliminar()
+    {
+        $id = filter_input(INPUT_POST, 'id', FILTER_VALIDATE_INT);
+
+        $cliente = new clienteModel();
+        $resultado = $cliente->eliminar($id);
+
+        if ($resultado){
+            echo "Cliente eliminado correctamente";
+        } else {
+            echo "No se pudo eliminar el cliente";
+        }
+        $this->index();
+    }
+}

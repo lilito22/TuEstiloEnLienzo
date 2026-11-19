@@ -31,15 +31,15 @@ class detalle_pedidoModel
         return $consulta->fetch(PDO::FETCH_ASSOC);
     }
 
-     public function guardar($nombre,$id_cuadro,$descripcion,$alto,$ancho,$cantidad,$precio_unitario,$subtotal)
+     public function guardar($id_pedido,$id_cuadro,$descripcion,$alto,$ancho,$cantidad,$precio_unitario,$subtotal)
     {
         try {
-            $sql="INSERT INTO detalle_pedido (nombre,id_cuadro,descripcion,alto,ancho,cantidad,precio_unitario,subtotal)
-        VALUES (:nombre,:id_cuadro,:descripcion,:alto,:ancho,:cantidad,:precio_unitario,:subtotal)
+            $sql="INSERT INTO detalle_pedido (id_pedido,id_cuadro,descripcion,alto,ancho,cantidad,precio_unitario,subtotal)
+        VALUES (:id_pedido,:id_cuadro,:descripcion,:alto,:ancho,:cantidad,:precio_unitario,:subtotal)
         ";
 
         $consulta = $this->connection->prepare($sql);
-        $consulta->bindparam(":nombre", $nombre);
+        $consulta->bindparam(":id_pedido", $id_pedido);
         $consulta->bindparam(":id_cuadro", $id_cuadro);
         $consulta->bindparam(":descripcion", $descripcion);
         $consulta->bindparam(":alto", $alto);
@@ -50,8 +50,45 @@ class detalle_pedidoModel
 
         return $consulta->execute();
         } catch (PDOException $e ){
-            echo "Error al guardar el detalle del pedido" . $nombre ."ERROR SQL: " .$e->getMessage();
+            echo "Error al guardar el detalle del pedido" . $id_pedido ."ERROR SQL: " .$e->getMessage();
         }
        
+    }
+
+    public function actualizar($id,$id_pedido,$id_cuadro,$descripcion,$alto,$ancho,$cantidad,$precio_unitario,$subtotal)
+    {
+        try {
+            $sql = "UPDATE detalle_pedido SET id_pedido = :id_pedido, id_cuadro = :id_cuadro, descripcion = :descripcion, alto = :alto, ancho = :ancho, cantidad = :cantidad, precio_unitario = :precio_unitario, subtotal = :subtotal
+                    WHERE id_detalle_pedido = :id";
+
+            $consulta = $this->connection->prepare($sql);
+            $consulta->bindparam(":id", $id);
+            $consulta->bindparam(":id_pedido", $id_pedido);
+            $consulta->bindparam(":id_cuadro", $id_cuadro);
+            $consulta->bindparam(":descripcion", $descripcion);
+            $consulta->bindparam(":alto", $alto);
+            $consulta->bindparam(":ancho", $ancho);
+            $consulta->bindparam(":cantidad", $cantidad);
+            $consulta->bindparam(":precio_unitario", $precio_unitario);
+            $consulta->bindparam(":subtotal", $subtotal);
+
+            return $consulta->execute();
+        } catch (PDOException $e) {
+            echo "Error al actualizar el detalle del pedido. ERROR SQL: " . $e->getMessage();
+        }
+    }
+
+    public function eliminar($id)
+    {
+        try {
+            $sql = "DELETE FROM detalle_pedido WHERE id_detalle_pedido = :id";
+
+            $consulta = $this->connection->prepare($sql);
+            $consulta->bindparam(":id", $id);
+
+            return $consulta->execute();
+        } catch (PDOException $e) {
+            echo "Error al eliminar el detalle del pedido. ERROR SQL: " . $e->getMessage();
+        }
     }
 }

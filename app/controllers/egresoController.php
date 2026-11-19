@@ -45,8 +45,43 @@ class egresoController
     {
         $id = filter_input(INPUT_GET, 'id', FILTER_VALIDATE_INT);
         $egresom = new egresoModel();
-        $egresoo = $egresom->getByid($id);
+        $egreso = $egresom->getByid($id);
 
         require_once __DIR__ . "/../views/egreso/editar.php";
     }
-} 
+
+    public function actualizar()
+    {
+        $id=$_POST['id'];
+        $fecha_egreso=$_POST['fecha_egreso'];
+        $concepto=$_POST['concepto'];
+        $id_tipo_egreso=$_POST['id_tipo_egreso'];
+        $valor=$_POST['valor'];
+        $observacion=$_POST['observacion'];
+
+        $egreso = new egresoModel();
+        $resultado = $egreso->actualizar($id,$fecha_egreso,$concepto,$id_tipo_egreso,$valor,$observacion);
+
+        if ($resultado){
+            echo "Egreso actualizado correctamente";
+            $this->index();
+        } else {
+            echo "No se pudo actualizar el egreso";
+        }
+    }
+
+    public function eliminar()
+    {
+        $id = filter_input(INPUT_POST, 'id', FILTER_VALIDATE_INT);
+
+        $egreso = new egresoModel();
+        $resultado = $egreso->eliminar($id);
+
+        if ($resultado){
+            echo "Egreso eliminado correctamente";
+        } else {
+            echo "No se pudo eliminar el egreso";
+        }
+        $this->index();
+    }
+}

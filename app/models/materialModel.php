@@ -51,4 +51,38 @@ class materialModel
         }
        
     }
+
+    public function actualizar($id,$nombre,$descripcion,$unidad_medida,$costo_unitario,$estado)
+    {
+        try {
+            $sql = "UPDATE material SET nombre = :nombre, descripcion = :descripcion, unidad_medida = :unidad_medida, costo_unitario = :costo_unitario, estado = :estado
+                    WHERE id_material = :id";
+
+            $consulta = $this->connection->prepare($sql);
+            $consulta->bindparam(":id", $id);
+            $consulta->bindparam(":nombre", $nombre);
+            $consulta->bindparam(":descripcion", $descripcion);
+            $consulta->bindparam(":unidad_medida", $unidad_medida);
+            $consulta->bindparam(":costo_unitario", $costo_unitario);
+            $consulta->bindparam(":estado", $estado);
+
+            return $consulta->execute();
+        } catch (PDOException $e) {
+            echo "Error al actualizar el material. ERROR SQL: " . $e->getMessage();
+        }
+    }
+
+    public function eliminar($id)
+    {
+        try {
+            $sql = "DELETE FROM material WHERE id_material = :id";
+
+            $consulta = $this->connection->prepare($sql);
+            $consulta->bindparam(":id", $id);
+
+            return $consulta->execute();
+        } catch (PDOException $e) {
+            echo "Error al eliminar el material. ERROR SQL: " . $e->getMessage();
+        }
+    }
 }

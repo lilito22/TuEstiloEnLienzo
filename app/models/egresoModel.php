@@ -51,4 +51,38 @@ class egresoModel
         }
        
     }
+
+    public function actualizar($id,$fecha_egreso,$concepto,$id_tipo_egreso,$valor,$observacion)
+    {
+        try {
+            $sql = "UPDATE egreso SET fecha_egreso = :fecha_egreso, concepto = :concepto, id_tipo_egreso = :id_tipo_egreso, valor = :valor, observacion = :observacion
+                    WHERE id_egreso = :id";
+
+            $consulta = $this->connection->prepare($sql);
+            $consulta->bindparam(":id", $id);
+            $consulta->bindparam(":fecha_egreso", $fecha_egreso);
+            $consulta->bindparam(":concepto", $concepto);
+            $consulta->bindparam(":id_tipo_egreso", $id_tipo_egreso);
+            $consulta->bindparam(":valor", $valor);
+            $consulta->bindparam(":observacion", $observacion);
+
+            return $consulta->execute();
+        } catch (PDOException $e) {
+            echo "Error al actualizar el egreso. ERROR SQL: " . $e->getMessage();
+        }
+    }
+
+    public function eliminar($id)
+    {
+        try {
+            $sql = "DELETE FROM egreso WHERE id_egreso = :id";
+
+            $consulta = $this->connection->prepare($sql);
+            $consulta->bindparam(":id", $id);
+
+            return $consulta->execute();
+        } catch (PDOException $e) {
+            echo "Error al eliminar el egreso. ERROR SQL: " . $e->getMessage();
+        }
+    }
 }

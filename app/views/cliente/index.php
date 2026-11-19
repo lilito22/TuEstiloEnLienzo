@@ -31,6 +31,7 @@
         <th>direccion</th>
         <th>ciudad</th>
         <th>estado</th>
+        <th></th>
     </tr>
 
     <?php foreach ($clientes as $cliente): ?>
@@ -43,6 +44,13 @@
         <td><?= $cliente['direccion'] ?></td>
         <td><?= $cliente['ciudad'] ?></td>
         <td><?= $cliente['estado'] ?></td>
+        <td>
+            <a href="/cliente/editar?id=<?= $cliente['id_cliente'] ?>">Editar</a>
+            <form action="/cliente/eliminar" method="POST" style="display:inline" onsubmit="return confirm('¿Seguro que quieres eliminar este registro?');">
+                <input type="hidden" name="id" value="<?= $cliente['id_cliente'] ?>">
+                <button type="submit">Eliminar</button>
+            </form>
+        </td>
     </tr>
     <?php endforeach; ?>
 </table>

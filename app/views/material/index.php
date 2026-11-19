@@ -29,6 +29,7 @@
         <th>unidad_medida</th>
         <th>costo_unitario</th>
         <th>estado</th>
+        <th></th>
     </tr>
 
     <?php foreach ($materiales as $material): ?>
@@ -37,8 +38,15 @@
         <td><?= $material['nombre'] ?></td>
         <td><?= $material['descripcion'] ?></td>
         <td><?= $material['unidad_medida'] ?></td>
-        <td><?= $material['costo_unitatio'] ?></td>
+        <td><?= $material['costo_unitario'] ?></td>
         <td><?= $material['estado'] ?></td>
+        <td>
+            <a href="/materiales/editar?id=<?= $material['id_material'] ?>">Editar</a>
+            <form action="/materiales/eliminar" method="POST" style="display:inline" onsubmit="return confirm('¿Seguro que quieres eliminar este registro?');">
+                <input type="hidden" name="id" value="<?= $material['id_material'] ?>">
+                <button type="submit">Eliminar</button>
+            </form>
+        </td>
     </tr>
     <?php endforeach; ?>
 </table>

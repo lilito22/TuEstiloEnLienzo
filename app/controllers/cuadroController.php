@@ -55,4 +55,43 @@ class cuadroController
         require_once __DIR__ . "/../views/cuadro/editar.php";
     }
 
+    public function actualizar()
+    {
+        $id=$_POST['id'];
+        $nombre=$_POST['nombre'];
+        $descripcion=$_POST['descripcion'];
+        $alto=$_POST['alto'];
+        $ancho=$_POST['ancho'];
+        $precio_costo=$_POST['precio_costo'];
+        $precio_venta=$_POST['precio_venta'];
+        $imagen=$_POST['imagen'];
+        $material=$_POST['material'];
+        $estado=$_POST['estado'];
+        $id_material_cuadro=$_POST['id_material_cuadro'];
+
+        $cuadro = new cuadroModel();
+        $resultado = $cuadro->actualizar($id,$nombre,$descripcion,$alto,$ancho,$precio_costo,$precio_venta,$imagen,$material,$estado,$id_material_cuadro);
+
+        if ($resultado){
+            echo "Cuadro actualizado correctamente";
+            $this->index();
+        } else {
+            echo "No se pudo actualizar el cuadro";
+        }
+    }
+
+    public function eliminar()
+    {
+        $id = filter_input(INPUT_POST, 'id', FILTER_VALIDATE_INT);
+
+        $cuadro = new cuadroModel();
+        $resultado = $cuadro->eliminar($id);
+
+        if ($resultado){
+            echo "Cuadro eliminado correctamente";
+        } else {
+            echo "No se pudo eliminar el cuadro";
+        }
+        $this->index();
+    }
 }

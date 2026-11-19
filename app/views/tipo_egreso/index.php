@@ -26,6 +26,7 @@
         <th>id_tipo_egreso</th>
         <th>nombre</th>
         <th>descripcion</th>
+        <th></th>
     </tr>
 
     <?php foreach ($tipo_egresos as $tipo_egreso): ?>
@@ -33,6 +34,13 @@
         <td><?= $tipo_egreso['id_tipo_egreso'] ?></td>
         <td><?= $tipo_egreso['nombre'] ?></td>
         <td><?= $tipo_egreso['descripcion'] ?></td>
+        <td>
+            <a href="/tipo_egresos/editar?id=<?= $tipo_egreso['id_tipo_egreso'] ?>">Editar</a>
+            <form action="/tipo_egresos/eliminar" method="POST" style="display:inline" onsubmit="return confirm('¿Seguro que quieres eliminar este registro?');">
+                <input type="hidden" name="id" value="<?= $tipo_egreso['id_tipo_egreso'] ?>">
+                <button type="submit">Eliminar</button>
+            </form>
+        </td>
     </tr>
     <?php endforeach; ?>
 </table>

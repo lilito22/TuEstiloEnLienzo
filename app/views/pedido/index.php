@@ -35,6 +35,7 @@
         <th>ciudad_entrega</th>
         <th>fecha_entrega</th>
         <th>observacion</th>
+        <th></th>
     </tr>
 
     <?php foreach ($pedidos as $pedido): ?>
@@ -51,6 +52,13 @@
         <td><?= $pedido['ciudad_entrega'] ?></td>
         <td><?= $pedido['fecha_entrega'] ?></td>
         <td><?= $pedido['observacion'] ?></td>
+        <td>
+            <a href="/pedidos/editar?id=<?= $pedido['id_pedido'] ?>">Editar</a>
+            <form action="/pedidos/eliminar" method="POST" style="display:inline" onsubmit="return confirm('¿Seguro que quieres eliminar este registro?');">
+                <input type="hidden" name="id" value="<?= $pedido['id_pedido'] ?>">
+                <button type="submit">Eliminar</button>
+            </form>
+        </td>
     </tr>
     <?php endforeach; ?>
 </table>

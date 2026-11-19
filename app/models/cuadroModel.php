@@ -55,4 +55,43 @@ class cuadroModel {
         }
        
     }
+
+    public function actualizar($id,$nombre,$descripcion,$alto,$ancho,$precio_costo,$precio_venta,$imagen,$material,$estado,$id_material_cuadro)
+    {
+        try {
+            $sql = "UPDATE cuadro SET nombre = :nombre, descripcion = :descripcion, alto = :alto, ancho = :ancho, precio_costo = :precio_costo, precio_venta = :precio_venta, imagen = :imagen, material = :material, estado = :estado, id_material_cuadro = :id_material_cuadro
+                    WHERE id_cuadro = :id";
+
+            $consulta = $this->connection->prepare($sql);
+            $consulta->bindparam(":id", $id);
+            $consulta->bindparam(":nombre", $nombre);
+            $consulta->bindparam(":descripcion", $descripcion);
+            $consulta->bindparam(":alto", $alto);
+            $consulta->bindparam(":ancho", $ancho);
+            $consulta->bindparam(":precio_costo", $precio_costo);
+            $consulta->bindparam(":precio_venta", $precio_venta);
+            $consulta->bindparam(":imagen", $imagen);
+            $consulta->bindparam(":material", $material);
+            $consulta->bindparam(":estado", $estado);
+            $consulta->bindparam(":id_material_cuadro", $id_material_cuadro);
+
+            return $consulta->execute();
+        } catch (PDOException $e) {
+            echo "Error al actualizar el cuadro. ERROR SQL: " . $e->getMessage();
+        }
+    }
+
+    public function eliminar($id)
+    {
+        try {
+            $sql = "DELETE FROM cuadro WHERE id_cuadro = :id";
+
+            $consulta = $this->connection->prepare($sql);
+            $consulta->bindparam(":id", $id);
+
+            return $consulta->execute();
+        } catch (PDOException $e) {
+            echo "Error al eliminar el cuadro. ERROR SQL: " . $e->getMessage();
+        }
+    }
 }

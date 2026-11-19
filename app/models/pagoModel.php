@@ -53,4 +53,40 @@ class pagoModel
         }
        
     }
+
+    public function actualizar($id,$id_pedido,$fecha_pago,$monto,$metodo_pago,$tipo_movimiento,$referencia,$observacion)
+    {
+        try {
+            $sql = "UPDATE pago SET id_pedido = :id_pedido, fecha_pago = :fecha_pago, monto = :monto, metodo_pago = :metodo_pago, tipo_movimiento = :tipo_movimiento, referencia = :referencia, observacion = :observacion
+                    WHERE id_pago = :id";
+
+            $consulta = $this->connection->prepare($sql);
+            $consulta->bindparam(":id", $id);
+            $consulta->bindparam(":id_pedido", $id_pedido);
+            $consulta->bindparam(":fecha_pago", $fecha_pago);
+            $consulta->bindparam(":monto", $monto);
+            $consulta->bindparam(":metodo_pago", $metodo_pago);
+            $consulta->bindparam(":tipo_movimiento", $tipo_movimiento);
+            $consulta->bindparam(":referencia", $referencia);
+            $consulta->bindparam(":observacion", $observacion);
+
+            return $consulta->execute();
+        } catch (PDOException $e) {
+            echo "Error al actualizar el pago. ERROR SQL: " . $e->getMessage();
+        }
+    }
+
+    public function eliminar($id)
+    {
+        try {
+            $sql = "DELETE FROM pago WHERE id_pago = :id";
+
+            $consulta = $this->connection->prepare($sql);
+            $consulta->bindparam(":id", $id);
+
+            return $consulta->execute();
+        } catch (PDOException $e) {
+            echo "Error al eliminar el pago. ERROR SQL: " . $e->getMessage();
+        }
+    }
 }

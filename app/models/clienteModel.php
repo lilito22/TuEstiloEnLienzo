@@ -53,4 +53,40 @@ class clienteModel
         }
        
     }
+
+    public function actualizar($id,$nombre,$apellido,$telefono,$correo,$direccion,$ciudad,$estado)
+    {
+        try {
+            $sql = "UPDATE cliente SET nombre = :nombre, apellido = :apellido, telefono = :telefono, correo = :correo, direccion = :direccion, ciudad = :ciudad, estado = :estado
+                    WHERE id_cliente = :id";
+
+            $consulta = $this->connection->prepare($sql);
+            $consulta->bindparam(":id", $id);
+            $consulta->bindparam(":nombre", $nombre);
+            $consulta->bindparam(":apellido", $apellido);
+            $consulta->bindparam(":telefono", $telefono);
+            $consulta->bindparam(":correo", $correo);
+            $consulta->bindparam(":direccion", $direccion);
+            $consulta->bindparam(":ciudad", $ciudad);
+            $consulta->bindparam(":estado", $estado);
+
+            return $consulta->execute();
+        } catch (PDOException $e) {
+            echo "Error al actualizar el cliente. ERROR SQL: " . $e->getMessage();
+        }
+    }
+
+    public function eliminar($id)
+    {
+        try {
+            $sql = "DELETE FROM cliente WHERE id_cliente = :id";
+
+            $consulta = $this->connection->prepare($sql);
+            $consulta->bindparam(":id", $id);
+
+            return $consulta->execute();
+        } catch (PDOException $e) {
+            echo "Error al eliminar el cliente. ERROR SQL: " . $e->getMessage();
+        }
+    }
 }

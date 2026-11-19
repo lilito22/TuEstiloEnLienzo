@@ -31,6 +31,7 @@
         <th>impuesto</th>
         <th>total_factura</th>
         <th>estado_factura</th>
+        <th></th>
     </tr>
 
     <?php foreach ($facturas as $factura): ?>
@@ -43,6 +44,13 @@
         <td><?= $factura['impuesto'] ?></td>
         <td><?= $factura['total_factura'] ?></td>
         <td><?= $factura['estado_factura'] ?></td>
+        <td>
+            <a href="/facturas/editar?id=<?= $factura['id_factura'] ?>">Editar</a>
+            <form action="/facturas/eliminar" method="POST" style="display:inline" onsubmit="return confirm('¿Seguro que quieres eliminar este registro?');">
+                <input type="hidden" name="id" value="<?= $factura['id_factura'] ?>">
+                <button type="submit">Eliminar</button>
+            </form>
+        </td>
     </tr>
     <?php endforeach; ?>
 </table>

@@ -49,4 +49,36 @@ class cuadro_materialModel
         }
        
     }
+
+    public function actualizar($id,$id_material,$cantidad,$subtotal_costo)
+    {
+        try {
+            $sql = "UPDATE cuadro_material SET id_material = :id_material, cantidad = :cantidad, subtotal_costo = :subtotal_costo
+                    WHERE id_cuadro_material = :id";
+
+            $consulta = $this->connection->prepare($sql);
+            $consulta->bindparam(":id", $id);
+            $consulta->bindparam(":id_material", $id_material);
+            $consulta->bindparam(":cantidad", $cantidad);
+            $consulta->bindparam(":subtotal_costo", $subtotal_costo);
+
+            return $consulta->execute();
+        } catch (PDOException $e) {
+            echo "Error al actualizar el cuadro_material. ERROR SQL: " . $e->getMessage();
+        }
+    }
+
+    public function eliminar($id)
+    {
+        try {
+            $sql = "DELETE FROM cuadro_material WHERE id_cuadro_material = :id";
+
+            $consulta = $this->connection->prepare($sql);
+            $consulta->bindparam(":id", $id);
+
+            return $consulta->execute();
+        } catch (PDOException $e) {
+            echo "Error al eliminar el cuadro_material. ERROR SQL: " . $e->getMessage();
+        }
+    }
 }

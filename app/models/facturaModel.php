@@ -53,4 +53,40 @@ class facturaModel
         }
        
     }
+
+    public function actualizar($id,$id_pedido,$numero_factura,$fecha_factura,$subtotal,$impuesto,$total_factura,$estado_factura)
+    {
+        try {
+            $sql = "UPDATE factura SET id_pedido = :id_pedido, numero_factura = :numero_factura, fecha_factura = :fecha_factura, subtotal = :subtotal, impuesto = :impuesto, total_factura = :total_factura, estado_factura = :estado_factura
+                    WHERE id_factura = :id";
+
+            $consulta = $this->connection->prepare($sql);
+            $consulta->bindparam(":id", $id);
+            $consulta->bindparam(":id_pedido", $id_pedido);
+            $consulta->bindparam(":numero_factura", $numero_factura);
+            $consulta->bindparam(":fecha_factura", $fecha_factura);
+            $consulta->bindparam(":subtotal", $subtotal);
+            $consulta->bindparam(":impuesto", $impuesto);
+            $consulta->bindparam(":total_factura", $total_factura);
+            $consulta->bindparam(":estado_factura", $estado_factura);
+
+            return $consulta->execute();
+        } catch (PDOException $e) {
+            echo "Error al actualizar el factura. ERROR SQL: " . $e->getMessage();
+        }
+    }
+
+    public function eliminar($id)
+    {
+        try {
+            $sql = "DELETE FROM factura WHERE id_factura = :id";
+
+            $consulta = $this->connection->prepare($sql);
+            $consulta->bindparam(":id", $id);
+
+            return $consulta->execute();
+        } catch (PDOException $e) {
+            echo "Error al eliminar el factura. ERROR SQL: " . $e->getMessage();
+        }
+    }
 }

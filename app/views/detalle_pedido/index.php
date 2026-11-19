@@ -32,6 +32,7 @@
         <th>cantidad</th>
         <th>precio_unitario</th>
         <th>subtotal</th>
+        <th></th>
     </tr>
 
     <?php foreach ($detalle_pedidos as $detalle_pedido): ?>
@@ -45,6 +46,13 @@
         <td><?= $detalle_pedido['cantidad'] ?></td>
         <td><?= $detalle_pedido['precio_unitario'] ?></td>
         <td><?= $detalle_pedido['subtotal'] ?></td>
+        <td>
+            <a href="/detalle_pedido/editar?id=<?= $detalle_pedido['id_detalle_pedido'] ?>">Editar</a>
+            <form action="/detalle_pedido/eliminar" method="POST" style="display:inline" onsubmit="return confirm('¿Seguro que quieres eliminar este registro?');">
+                <input type="hidden" name="id" value="<?= $detalle_pedido['id_detalle_pedido'] ?>">
+                <button type="submit">Eliminar</button>
+            </form>
+        </td>
     </tr>
     <?php endforeach; ?>
 </table>

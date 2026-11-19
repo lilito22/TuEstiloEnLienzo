@@ -35,9 +35,7 @@
         <th>material</th>
         <th>estado</th>
         <th>id_material_cuadro</th>
-        <th>
-
-        </th>
+        <th></th>
     </tr>
 
     <?php foreach ($cuadros as $cuadro): ?>
@@ -53,7 +51,13 @@
         <td><?= $cuadro['material'] ?></td>
         <td><?= $cuadro['estado'] ?></td>
         <td><?= $cuadro['id_material_cuadro'] ?></td>
-        <td><a href="/cuadro/editar?id="<?= $cuadro['id_cuadro'] ?>">Editar</a></td>
+        <td>
+            <a href="/cuadro/editar?id=<?= $cuadro['id_cuadro'] ?>">Editar</a>
+            <form action="/cuadro/eliminar" method="POST" style="display:inline" onsubmit="return confirm('¿Seguro que quieres eliminar este registro?');">
+                <input type="hidden" name="id" value="<?= $cuadro['id_cuadro'] ?>">
+                <button type="submit">Eliminar</button>
+            </form>
+        </td>
     </tr>
     <?php endforeach; ?>
 </table>

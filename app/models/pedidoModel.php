@@ -31,7 +31,7 @@ class pedidoModel
         return $consulta->fetch(PDO::FETCH_ASSOC);
     }
 
-    public function guardar($id_cliente,$id_usuario,$fecha_pedido,$ciudad_entrega_pedido,$subtotal,$total,$tipo_entrega,$direccion_entrega,$ciudad_entrega,$fecha_entrega,$observacion)
+    public function guardar($id_cliente,$id_usuario,$fecha_pedido,$estado_pedido,$subtotal,$total,$tipo_entrega,$direccion_entrega,$ciudad_entrega,$fecha_entrega,$observacion)
     {
         try {
             $sql="INSERT INTO pedido (id_cliente,id_usuario,fecha_pedido,estado_pedido,subtotal,total,tipo_entrega,direccion_entrega,ciudad_entrega,fecha_entrega,observacion)
@@ -56,5 +56,45 @@ class pedidoModel
             echo "Error al guardar el pedido" . $id_cliente ."ERROR SQL: " .$e->getMessage();
         }
        
+    }
+
+    public function actualizar($id,$id_cliente,$id_usuario,$fecha_pedido,$estado_pedido,$subtotal,$total,$tipo_entrega,$direccion_entrega,$ciudad_entrega,$fecha_entrega,$observacion)
+    {
+        try {
+            $sql = "UPDATE pedido SET id_cliente = :id_cliente, id_usuario = :id_usuario, fecha_pedido = :fecha_pedido, estado_pedido = :estado_pedido, subtotal = :subtotal, total = :total, tipo_entrega = :tipo_entrega, direccion_entrega = :direccion_entrega, ciudad_entrega = :ciudad_entrega, fecha_entrega = :fecha_entrega, observacion = :observacion
+                    WHERE id_pedido = :id";
+
+            $consulta = $this->connection->prepare($sql);
+            $consulta->bindparam(":id", $id);
+            $consulta->bindparam(":id_cliente", $id_cliente);
+            $consulta->bindparam(":id_usuario", $id_usuario);
+            $consulta->bindparam(":fecha_pedido", $fecha_pedido);
+            $consulta->bindparam(":estado_pedido", $estado_pedido);
+            $consulta->bindparam(":subtotal", $subtotal);
+            $consulta->bindparam(":total", $total);
+            $consulta->bindparam(":tipo_entrega", $tipo_entrega);
+            $consulta->bindparam(":direccion_entrega", $direccion_entrega);
+            $consulta->bindparam(":ciudad_entrega", $ciudad_entrega);
+            $consulta->bindparam(":fecha_entrega", $fecha_entrega);
+            $consulta->bindparam(":observacion", $observacion);
+
+            return $consulta->execute();
+        } catch (PDOException $e) {
+            echo "Error al actualizar el pedido. ERROR SQL: " . $e->getMessage();
+        }
+    }
+
+    public function eliminar($id)
+    {
+        try {
+            $sql = "DELETE FROM pedido WHERE id_pedido = :id";
+
+            $consulta = $this->connection->prepare($sql);
+            $consulta->bindparam(":id", $id);
+
+            return $consulta->execute();
+        } catch (PDOException $e) {
+            echo "Error al eliminar el pedido. ERROR SQL: " . $e->getMessage();
+        }
     }
 }
