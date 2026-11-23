@@ -35,22 +35,27 @@ foreach ($productos as $producto) {
 <?php
 
 $json = file_get_contents("productos.json");
-
 $productos = json_decode($json, true);
+
+$idBuscar = 1;
 
 foreach ($productos as &$producto) {
 
-    if ($producto["id"] == 1) {
+    if ($producto["id"] == $idBuscar) {
+
+        // 3. Modificar el precio
         $producto["precio"] = 50000;
+
+        echo "Precio actualizado correctamente.<br>";
     }
 }
 
 unset($producto);
 
-$nuevoJson = json_encode($productos, JSON_PRETTY_PRINT);
+$nuevoJson = json_encode($productos, JSON_PRETTY_PRINT | JSON_UNESCAPED_UNICODE);
 
+echo "<pre>";
 echo $nuevoJson;
-
-file_put_contents("productos.json", $nuevoJson);
+echo "</pre>";
 
 ?>
