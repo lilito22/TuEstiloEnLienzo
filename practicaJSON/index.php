@@ -7,7 +7,7 @@ $productos = [
     ["id"=>4, "nombre"=>"Cable USB-C", "precio"=>25000, "stock"=>30, "disponible"=>true]
 ];
 
-echo json_encode($productos, JSON_PRETTY_PRINT);
+echo json_encode($productos, JSON_PRETTY_PRINT | JSON_UNESCAPED_UNICODE);
 
 ?>
 

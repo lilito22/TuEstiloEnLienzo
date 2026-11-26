@@ -22,7 +22,7 @@ class DataBase
 
     public function connect(){
         try{
-            $dsn = "mysql:host={$this->host};port={$this->port};dbname={$this->dbname}";
+            $dsn = "mysql:host={$this->host};port={$this->port};dbname={$this->dbname};charset=utf8mb4";
 
             $this->connection = new PDO($dsn, $this->user, $this->password);
 

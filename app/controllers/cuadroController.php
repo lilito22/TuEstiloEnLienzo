@@ -94,4 +94,21 @@ class cuadroController
         }
         $this->index();
     }
+
+    public function listarjson()
+    {
+        try{
+        $cuadro = new cuadroModel();
+        $cuadros=$cuadro->getALL();
+
+        http_response_code(200);
+        echo json_encode($cuadros, JSON_PRETTY_PRINT | JSON_UNESCAPED_UNICODE);
+        } catch (PDOException $e){
+            http_response_code(500);
+            echo json_encode([
+                "mensaje" => "Error al consultar los cuadros"
+            ], JSON_UNESCAPED_UNICODE);
+        }
+         
+    }
 }
